@@ -40,6 +40,16 @@
         "changeDetectionStrategy": "OnPush"
       }
     },
+    "page": {
+      "type": "ANGULAR_COMPONENT",
+      "folder": "pages/$name$",
+      "config": {
+        "stylesExtension": "none",
+        "viewEncapsulation": "None",
+        "selector": "generated",
+        "changeDetectionStrategy": "OnPush"
+      }
+    },
     "directive":{
       "type":"ANGULAR_DIRECTIVE",
       "folder":"directives/$name$",
