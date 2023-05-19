@@ -6,6 +6,12 @@
       "router": ["CONSTRUCTOR"],
       "activatedRoute": ["CONSTRUCTOR"]
     },
+    "page": {
+      "model": ["PROPERTY"],
+      "service": ["CONSTRUCTOR"],
+      "router": ["CONSTRUCTOR"],
+      "activatedRoute": ["CONSTRUCTOR"]
+    },
     "directive": {
       "service": ["CONSTRUCTOR"],
       "router": ["CONSTRUCTOR"]
