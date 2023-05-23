@@ -1,3 +1,5 @@
+import { EmployeeModel } from './employee.model';
+
 export interface ProjectModel {
   readonly id: string;
   readonly name: string;
@@ -6,5 +8,5 @@ export interface ProjectModel {
   readonly dueDate: string;
   readonly visibility: string;
   readonly percentage?: number;
-  readonly assignees: string[];
+  readonly assignees: EmployeeModel[];
 }
