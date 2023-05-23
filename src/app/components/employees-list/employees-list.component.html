@@ -1,7 +1,7 @@
 <div class="content-list">
   <div class="content-list-body row">
     <div class="col-6" *ngFor="let employee of employees$ | async">
-      <a class="media media-member" [routerLink]="'/employee/' + employee.id">
+      <a class="media media-member" [routerLink]="'/employees/' + employee.id">
         <img
           alt="Claire Connors"
           [src]="employee.avatarUrl"
