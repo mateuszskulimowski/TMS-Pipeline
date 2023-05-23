@@ -1,30 +1,27 @@
-<div class="tab-content">
-  <div class="tab-pane fade show active">
-    <div class="content-list-body row">
-      <div class="col-lg-6" *ngFor="let project of projects$ | async">
-        <div class="card card-project">
-          <div class="progress">
-            <div
-              class="progress-bar bg-primary"
-              role="progressbar"
-              style="width: {{ project.percentage }}%"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            ></div>
-          </div>
-          <div class="card-body">
-            <div class="card-title">
-              <a href="#"
-                ><h5 data-filter-by="text">{{ project.name }}</h5></a
-              >
-            </div>
+<div class="content-list-body row">
+  <div class="col-lg-6" *ngFor="let project of projects$ | async">
+    <div class="card card-project">
+      <div class="progress">
+        <div
+          class="progress-bar bg-primary"
+          role="progressbar"
+          style="width: {{ project.percentage }}%"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
 
-            <div class="card-meta d-flex justify-content-between">
-              <span class="text-small" data-filter-by="text"
-                >Due on {{ project.dueDate | date }}</span
-              >
-            </div>
-          </div>
+      <div class="card-body">
+        <div class="card-title">
+          <a href="#"
+            ><h5 data-filter-by="text">{{ project.name }}</h5></a
+          >
+        </div>
+
+        <div class="card-meta d-flex justify-content-between">
+          <span class="text-small" data-filter-by="text"
+            >Due on {{ project.dueDate | date }}</span
+          >
         </div>
       </div>
     </div>

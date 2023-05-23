@@ -1,25 +1,21 @@
-<div class="tab-content">
-  <div class="tab-pane fade show active">
-    <div class="content-list">
-      <div class="content-list-body row">
-        <div class="col-6" *ngFor="let employee of employees$ | async">
-          <a class="media media-member" href="#">
-            <img
-              alt="Claire Connors"
-              [src]="employee.avatarUrl"
-              class="avatar avatar-lg"
-            />
-            <div class="media-body">
-              <h6 class="mb-0" data-filter-by="text">
-                {{ employee.firstName }} {{ employee.lastName }}
-              </h6>
-              <span data-filter-by="text" class="text-body">{{
-                employee.position
-              }}</span>
-            </div>
-          </a>
+<div class="content-list">
+  <div class="content-list-body row">
+    <div class="col-6" *ngFor="let employee of employees$ | async">
+      <a class="media media-member" [routerLink]="'/employee/' + employee.id">
+        <img
+          alt="Claire Connors"
+          [src]="employee.avatarUrl"
+          class="avatar avatar-lg"
+        />
+        <div class="media-body">
+          <h6 class="mb-0" data-filter-by="text">
+            {{ employee.firstName }} {{ employee.lastName }}
+          </h6>
+          <span data-filter-by="text" class="text-body">{{
+            employee.position
+          }}</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </div>

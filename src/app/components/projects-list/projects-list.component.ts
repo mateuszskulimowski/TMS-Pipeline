@@ -1,10 +1,12 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ProjectModel } from '../../models/project.model';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, map, shareReplay, tap } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { ProjectService } from '../../services/project.service';
 
 @Component({
@@ -14,8 +16,27 @@ import { ProjectService } from '../../services/project.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsListComponent {
-  readonly projects$: Observable<ProjectModel[]> =
-    this._projectService.getProjects();
+  // @Input() employeeId!: string;
+  readonly projects$: Observable<any> = this._projectService.getProjects().pipe(
+    shareReplay(1),
+    switchMap((projects) =>
+      this._activatedRoute.params.pipe(
+        map((params) => {
+          return !params['id']
+            ? projects
+            : projects.filter((project) => {
+                console.log('pierwszy filtr');
+                return project.assignees.find(
+                  (assignee) => assignee.id === params['id']
+                );
+              });
+        })
+      )
+    )
+  );
 
-  constructor(private _projectService: ProjectService) {}
+  constructor(
+    private _projectService: ProjectService,
+    private _activatedRoute: ActivatedRoute
+  ) {}
 }
