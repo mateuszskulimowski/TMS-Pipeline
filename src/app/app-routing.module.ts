@@ -5,10 +5,15 @@ import { ProjectsPage } from './pages/projects/projects.page';
 import { TasksPage } from './pages/tasks/tasks.page';
 import { EmployeesPage } from './pages/employees/employees.page';
 import { HomePage } from './pages/home/home.page';
+import { EmployeeDetailsPage } from './pages/employee-details/employee-details.page';
+import { TeamsDetailPage } from './pages/teams-detail/teams-detail.page';
 import { ProjectsPageModule } from './pages/projects/projects.page-module';
 import { TasksPageModule } from './pages/tasks/tasks.page-module';
 import { EmployeesPageModule } from './pages/employees/employees.page-module';
 import { HomePageModule } from './pages/home/home.page-module';
+import { EmployeeDetailsPageModule } from './pages/employee-details/employee-details.page-module';
+import { TeamsDetailPageModule } from './pages/teams-detail/teams-detail.page-module';
+import { TabsetComponentModule } from './components/tabset/tabset.component-module';
 
 const routes: Routes = [
   { path: 'teams', component: TeamsPage },
@@ -16,6 +21,8 @@ const routes: Routes = [
   { path: 'tasks', component: TasksPage },
   { path: 'employees', component: EmployeesPage },
   { path: '', component: HomePage },
+  { path: 'employee/:id', component: EmployeeDetailsPage },
+  { path: 'teams/:id', component: TeamsDetailPage },
 ];
 
 @NgModule({
@@ -25,6 +32,9 @@ const routes: Routes = [
     TasksPageModule,
     EmployeesPageModule,
     HomePageModule,
+    EmployeeDetailsPageModule,
+    TeamsDetailPageModule,
+    TabsetComponentModule,
   ],
   exports: [RouterModule],
 })
