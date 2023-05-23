@@ -1,0 +1,22 @@
+<!-- <ul class="nav nav-tabs nav-fill" role="tablist">
+  <li class="nav-item">
+    <a
+      class="nav-link active"
+      [ngClass]=""
+      data-toggle="tab"
+      role="tab"
+      aria-controls="teams"
+      aria-selected="true"
+      >Teams</a
+    >
+  </li>
+</ul> -->
+<a
+  class="nav-link active"
+  data-toggle="tab"
+  role="tab"
+  aria-controls="teams"
+  aria-selected="true"
+  (click)="setTab(tabsetArr.title)"
+  >{{ tabsetArr.title }}</a
+>
