@@ -1,0 +1,9 @@
+<div class="page-header mb-4" *ngFor="let employee of employee$ | async">
+  <div class="media">
+    <img alt="Image" [src]="employee.avatarUrl" class="avatar avatar-lg mt-1" />
+    <div class="media-body ml-3">
+      <h1 class="mb-0">{{ employee.firstName }} {{ employee.lastName }}</h1>
+      <p class="lead">{{ employee.position }}</p>
+    </div>
+  </div>
+</div>
