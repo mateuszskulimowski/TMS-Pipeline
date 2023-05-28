@@ -9,7 +9,7 @@ export class ProjectService {
 
   getProjects(): Observable<ProjectModel[]> {
     return this._httpClient.get<ProjectModel[]>(
-      'https://6384fca14ce192ac60696c4b.mockapi.io/projects'
+      'https://646f899709ff19b120876fb8.mockapi.io/projects'
     );
   }
 }

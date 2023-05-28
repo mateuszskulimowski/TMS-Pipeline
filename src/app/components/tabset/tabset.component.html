@@ -1,22 +1,29 @@
-<!-- <ul class="nav nav-tabs nav-fill" role="tablist">
-  <li class="nav-item">
+<ul class="nav nav-tabs nav-fill" role="tablist">
+  <li class="nav-item" *ngFor="let tab of tabs">
     <a
-      class="nav-link active"
-      [ngClass]=""
+      class="nav-link"
+      [class.show]="tab === activeTab"
+      [class.active]="tab === activeTab"
       data-toggle="tab"
       role="tab"
       aria-controls="teams"
       aria-selected="true"
-      >Teams</a
+      (click)="onSwitchTab(tab)"
+      >{{ tab }}</a
     >
   </li>
-</ul> -->
-<a
-  class="nav-link active"
-  data-toggle="tab"
-  role="tab"
-  aria-controls="teams"
-  aria-selected="true"
-  (click)="setTab(tabsetArr.title)"
-  >{{ tabsetArr.title }}</a
->
+</ul>
+<div class="tab-content">
+  <ng-container *ngFor="let tab of tabs">
+    <div
+      [class.show]="tab === activeTab"
+      [class.active]="tab === activeTab"
+      class="tab-pane fade"
+      id="teams"
+      role="tabpanel"
+      data-filter-list="content-list-body"
+    >
+      <h3>{{ tab }}</h3>
+      <ng-container *ngTemplateOutlet="getContent(tab)"></ng-container></div
+  ></ng-container>
+</div>

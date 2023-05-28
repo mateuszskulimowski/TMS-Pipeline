@@ -1,16 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-// import { IsDoneCheckListDirectiveModule } from 'src/app/directives/is-done-check-list/is-done-check-list.directive-module';
-import { AssignAvatarsToTasksPipeModule } from 'src/app/pipes/assign-avatars-to-tasks.pipe-module';
+import { CheckListProgresbarDirectiveModule } from 'src/app/directives/progresbar/check-list-progresbar.directive-module';
+import { ConvertUnixDatePipeModule } from 'src/app/pipes/convert-unix-date.pipe-module';
 import { IsDoneCheckListPipeModule } from 'src/app/pipes/is-done-check-list.pipe-module';
+import { AvatarsListComponentModule } from '../avatars-list/avatars-list.component-module';
 import { TasksListComponent } from './tasks-list.component';
 
 @NgModule({
   imports: [
     CommonModule,
     IsDoneCheckListPipeModule,
-    AssignAvatarsToTasksPipeModule,
-    // IsDoneCheckListDirectiveModule,
+    AvatarsListComponentModule,
+
+    CheckListProgresbarDirectiveModule,
+    ConvertUnixDatePipeModule,
   ],
   declarations: [TasksListComponent],
   providers: [],

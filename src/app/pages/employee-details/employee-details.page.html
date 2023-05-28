@@ -1,47 +1,10 @@
 <app-center-layout>
   <app-employee-detail></app-employee-detail>
-
-  <ul class="nav nav-tabs nav-fill" role="tablist">
-    <li class="nav-item" *ngFor="let tab of tabTitles$|async">
-      <a
-        class="nav-link active"
-        [ngClass]="{'active':tab.isActive}"
-        data-toggle="tab"
-        role="tab"
-        aria-controls="teams"
-        aria-selected="true"
-        [tabset]="tabTitles$ "
-        [tabClick]="tab.title"
-        (setTabset)="change($event)"
-        >{{tab.title}}</a
-      >
-      <!-- <app-tabset [tabsetArr]="tab" [tabset]="tabTitles$ "></app-tabset> -->
-    </li>
-  </ul>
-
-  <div class="tab-content" *ngIf="tabsetActive$|async as tabset">
-    <div
-      class="tab-pane fade active"
-      [ngClass]="{'show':tabset.title==='Teams','active':tabset.title==='Teams'}"
-      id="teams"
-      role="tabpanel"
-      data-filter-list="content-list-body"
-    >
-      <app-tab-content-title></app-tab-content-title>
-
-      <app-teams-list></app-teams-list>
-    </div>
-
-    <div
-      class="tab-pane active fade"
-      id="tasks"
-      role="tabpanel"
-      data-filter-list="content-list-body"
-      [ngClass]="{'show':tabset.title==='Projects','active':tabset.title==='Projects'}"
-    >
-      <app-tab-content-title></app-tab-content-title>
-
-      <app-projects-list></app-projects-list>
-    </div>
-  </div>
+  <app-tabset [tabs]="['Teams','Projects']"
+    ><ng-template [appTabContent] tab="Teams">
+      <app-teams-list [isAvatar]="true"></app-teams-list></ng-template
+    ><ng-template [appTabContent] tab="Projects">
+      <app-projects-list [isProjectPage]="true"></app-projects-list
+    ></ng-template>
+  </app-tabset>
 </app-center-layout>

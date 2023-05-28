@@ -3,7 +3,8 @@ import {
   Component,
   ViewEncapsulation,
 } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
+import { map, Observable, shareReplay } from 'rxjs';
+import { EmployeeQueryModel } from 'src/app/query-models/employee.query-model';
 import { EmployeeModel } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 
@@ -14,9 +15,20 @@ import { EmployeeService } from '../../services/employee.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeesListComponent {
-  readonly employees$: Observable<EmployeeModel[]> = this._employeeService
+  readonly employees$: Observable<EmployeeQueryModel[]> = this._employeeService
     .getEmployees()
-    .pipe(shareReplay(1));
+    .pipe(
+      shareReplay(1),
+      map((employees) => this.mapEmployeeQuery(employees))
+    );
 
   constructor(private _employeeService: EmployeeService) {}
+  mapEmployeeQuery(employees: EmployeeModel[]): EmployeeQueryModel[] {
+    return employees.map((employee) => ({
+      id: employee.id,
+      name: `${employee.firstName} ${employee.lastName}`,
+      avatarUrl: employee.avatarUrl,
+      position: employee.position,
+    }));
+  }
 }

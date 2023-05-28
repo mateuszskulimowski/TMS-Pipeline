@@ -9,7 +9,7 @@ export class TeamService {
 
   getTeams(): Observable<TeamModel[]> {
     return this._httpClient.get<TeamModel[]>(
-      'https://6384fca14ce192ac60696c4b.mockapi.io/teams'
+      'https://646f899709ff19b120876fb8.mockapi.io/teams'
     );
   }
 }

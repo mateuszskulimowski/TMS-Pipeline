@@ -1,0 +1,13 @@
+<app-center-layout *ngFor="let team of teams$|async">
+  <app-description
+    [title]="team.name"
+    [text]="team.description"
+  ></app-description
+  ><app-avatars-list [employees]="team.members"></app-avatars-list>
+  <hr />
+  <app-tabset [tabs]="['Projects']"
+    ><ng-template [appTabContent] tab="Projects">
+      <app-projects-list [teamProjects]="team.projects"></app-projects-list>
+    </ng-template>
+  </app-tabset>
+</app-center-layout>

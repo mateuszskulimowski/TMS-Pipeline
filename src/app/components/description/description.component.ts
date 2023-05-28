@@ -14,4 +14,5 @@ import {
 export class DescriptionComponent {
   @Input() title!: string;
   @Input() text!: string;
+  @Input() isAvatar!: boolean;
 }

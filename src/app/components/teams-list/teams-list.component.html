@@ -2,15 +2,16 @@
   <div class="col-md-6" *ngFor="let team of teams$ | async">
     <div class="card card-team">
       <div class="card-body">
-        <div class="card-title">
-          <a [routerLink]="'/teams/' + team.id"
+        <div class="card-title" [routerLink]="'/teams/' + team.id">
+          <a
             ><h5 data-filter-by="text">{{ team.name }}</h5></a
           >
-          <span
-            >{{ team.projects.length }} Projects,
-            {{ team.members.length }} Members</span
-          >
+          <span>{{ team | projectsAndMembersInTeam }} </span>
         </div>
+        <app-avatars-list
+          *ngIf="isAvatar"
+          [employees]="team.members"
+        ></app-avatars-list>
       </div>
     </div>
   </div>

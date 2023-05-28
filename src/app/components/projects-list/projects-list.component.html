@@ -1,28 +1,48 @@
 <div class="content-list-body row">
   <div class="col-lg-6" *ngFor="let project of projects$ | async">
     <div class="card card-project">
-      <div class="progress">
+      <div class="progress" *ngIf="!isProjectPage">
         <div
           class="progress-bar bg-primary"
           role="progressbar"
-          style="width: {{ project.percentage }}%"
           aria-valuemin="0"
           aria-valuemax="100"
+          [percentageProgresbar]="project.percentage"
         ></div>
       </div>
 
       <div class="card-body">
         <div class="card-title">
-          <a href="#"
+          <a
             ><h5 data-filter-by="text">{{ project.name }}</h5></a
           >
         </div>
 
-        <div class="card-meta d-flex justify-content-between">
-          <span class="text-small" data-filter-by="text"
-            >Due on {{ project.dueDate | date }}</span
+        <div
+          class="card-meta d-flex justify-content-between"
+          *ngIf="isProjectPage; else noDetail"
+        >
+          <div class="d-flex align-items-center">
+            <i class="material-icons mr-1">playlist_add_check</i>
+            <span class="text-small"
+              >{{ project.taskIds | isDoneCheckList : project.checkList }}
+            </span>
+          </div>
+          <span class="text-small" data-filter-by="text">
+            {{
+              { dueDate: project.dueDate } | displayDate : isProjectPage
+            }}</span
           >
         </div>
+        <ng-template #noDetail>
+          <div class="card-meta d-flex justify-content-between">
+            <span class="text-small" data-filter-by="text">
+              {{
+                { dueDate: project.dueDate } | displayDate : isProjectPage
+              }}</span
+            >
+          </div></ng-template
+        >
       </div>
     </div>
   </div>

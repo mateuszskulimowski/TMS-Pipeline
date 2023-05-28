@@ -9,7 +9,7 @@ export class EmployeeService {
 
   getEmployees(): Observable<EmployeeModel[]> {
     return this._httpClient.get<EmployeeModel[]>(
-      'https://63810e439440b61b0d10b7c7.mockapi.io/employees'
+      'https://646f899709ff19b120876fb8.mockapi.io/employees'
     );
   }
 }

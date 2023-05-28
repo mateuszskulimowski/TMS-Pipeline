@@ -1,0 +1,11 @@
+<ul class="avatars">
+  <li *ngFor="let employee of employeesAvatar">
+    <a
+      [routerLink]="'/employees/' + employee.id"
+      data-toggle="tooltip"
+      title="Peggy"
+    >
+      <img alt="Peggy Brown" class="avatar" [src]="employee.avatarUrl" />
+    </a>
+  </li>
+</ul>

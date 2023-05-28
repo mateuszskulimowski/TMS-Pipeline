@@ -7,6 +7,6 @@ export interface ProjectModel {
   readonly startDate: string;
   readonly dueDate: string;
   readonly visibility: string;
-  readonly percentage?: number;
+  readonly percentage: number;
   readonly assignees: EmployeeModel[];
 }

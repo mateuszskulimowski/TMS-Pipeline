@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { TabsetDirectiveModule } from 'src/app/directives/tabset/tabset.directive-module';
+import { TabContentDirectiveModule } from 'src/app/directives/tab-content/tab-content.directive-module';
 import { TabsetComponent } from './tabset.component';
 
 @NgModule({
-  imports: [CommonModule, TabsetDirectiveModule],
+  imports: [CommonModule, TabContentDirectiveModule],
   declarations: [TabsetComponent],
   providers: [],
   exports: [TabsetComponent],

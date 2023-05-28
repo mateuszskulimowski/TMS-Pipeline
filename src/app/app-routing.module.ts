@@ -21,8 +21,8 @@ const routes: Routes = [
   { path: 'tasks', component: TasksPage },
   { path: 'employees', component: EmployeesPage },
   { path: '', component: HomePage },
-  { path: 'employees/:id', component: EmployeeDetailsPage },
-  { path: 'teams/:id', component: TeamsDetailPage },
+  { path: 'employees/:employeeId', component: EmployeeDetailsPage },
+  { path: 'teams/:teamId', component: TeamsDetailPage },
 ];
 
 @NgModule({
